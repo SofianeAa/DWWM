@@ -1,0 +1,36 @@
+﻿executer les 2 instructions suivantes sur la base
+ALTER TABLE commandes ADD cde_total int;
+UPDATE commandes SET cde_total = quantiteCommande * (select prixArticle from articles where articles.idArticle = commandes.idArticle)
+
+Affichez le contenu de la table commande. Qu'y a-t-il de changé dans cette table ? Comment le total de la
+commande a-t-il été calculé ? 
+
+Ecrire des requêtes SELECT. Vous vérifierez que le résultat de la requête correspond à votre inspection des
+tables correspondantes. 
+A) Afficher le montant le plus élevé de commande.
+SELECT MAX(`cde_total`) AS "Quantitée maximum commandée" FROM `commandes`
+B) Afficher le montant moyen des commandes.
+SELECT floor(AVG(`cde_total`)) AS "Quantitée moyenne commandée" FROM `commandes`
+C) Afficher le montant le plus bas de commande.
+SELECT MIN(`cde_total`) AS "Quantitée minimale commandée" FROM `commandes`
+D) Afficher le nombre de commandes qui ont été passées.
+SELECT SUM(`quantiteCommande`) AS "nb quantitée commandée" FROM `commandes`
+E) Afficher le montant moyen de commande par client
+SELECT clients.nomClient, clients.prenomClient, FLOOR(AVG(`cde_total`)) FROM `commandes` INNER JOIN clients ON commandes.idClient = clients.idClient GROUP BY commandes.idClient
+F) Afficher le montant le plus élevé de commande par client.
+SELECT clients.nomClient, clients.prenomClient, MAX(`cde_total`) FROM `commandes` INNER JOIN clients ON commandes.idClient = clients.idClient GROUP BY commandes.idClient
+G) Afficher le nombre de commandes par client.
+SELECT clients.nomClient, clients.prenomClient, `quantiteCommande` FROM `commandes` INNER JOIN clients ON commandes.idClient = clients.idClient GROUP BY commandes.idClient
+H) Afficher le nombre d 'articles commandés en moyenne par client
+SELECT clients.nomClient, clients.prenomClient, floor(AVG(`quantiteCommande`)) as "Moyenne de commande" FROM `commandes` INNER JOIN clients ON commandes.idClient = clients.idClient GROUP BY commandes.idClient
+I) Afficher le nombre d'articles commandés en moyenne par article.
+SELECT articles.descriptionArticle, articles.idArticle, FLOOR(AVG(`quantiteCommande`)) AS "Moyenne de commande par article" FROM `commandes` INNER JOIN articles ON commandes.idArticle = articles.idArticle GROUP BY commandes.idArticle
+J) Afficher le nombre total d'articles commandés par article.
+SELECT articles.descriptionArticle, articles.idArticle, `quantiteCommande` AS "NB total d'articles commandés par article" FROM `articles` LEFT JOIN commandes ON commandes.idArticle = articles.idArticle GROUP BY commandes.idArticle
+K) Afficher le nombre moyen d'articles par client et par date.
+SELECT articles.descriptionArticle, commandes.dateCommande, CONCAT( clients.nomClient, " ", clients.prenomClient ) AS "Nom client", floor(AVG(commandes.quantiteCommande)) AS "Moyenne d'article par client" FROM `articles` LEFT JOIN commandes ON commandes.idArticle = articles.idArticle INNER JOIN clients ON clients.idClient = commandes.idClient GROUP BY commandes.idArticle, commandes.dateCommande
+L) Afficher le nombre de commandes par jour.
+M) Afficher le nombre de clients dans la table.
+N) Afficher le nombre de clients différents qui ont passé commande.
+O) Afficher le nombre d' articles différents qui ont été commandés.
+P) Afficher le nombre de jours différents de commandes
