@@ -30,10 +30,7 @@ SELECT articles.descriptionArticle, articles.idArticle, `quantiteCommande` AS "N
 K) Afficher le nombre moyen d'articles par client et par date.
 SELECT articles.descriptionArticle, commandes.dateCommande, CONCAT( clients.nomClient, " ", clients.prenomClient ) AS "Nom client", floor(AVG(commandes.quantiteCommande)) AS "Moyenne d'article par client" FROM `articles` LEFT JOIN commandes ON commandes.idArticle = articles.idArticle INNER JOIN clients ON clients.idClient = commandes.idClient GROUP BY commandes.idArticle, commandes.dateCommande
 L) Afficher le nombre de commandes par jour.
-SELECT `dateCommande`, COUNT(*) FROM `commandes` GROUP BY `dateCommande`
 M) Afficher le nombre de clients dans la table.
-SELECT COUNT(clients.nomClient) AS Nbclient FROM `clients`
 N) Afficher le nombre de clients différents qui ont passé commande.
-
 O) Afficher le nombre d' articles différents qui ont été commandés.
 P) Afficher le nombre de jours différents de commandes

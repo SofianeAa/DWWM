@@ -1,0 +1,100 @@
+1-SELECT * FROM `employe`
+
+2-SELECT `nodept`, `nom`, `noregion` FROM dept
+
+3-SELECT `nom` , `dateemb` , `nosup` , `nodep`, `salaire` FROM employe
+
+4-SELECT titre, nom, prenom FROM employe
+
+5-SELECT DISTINCT(`titre`) from employe
+
+6-SELECT `nom`,`noemp`,`nodep` FROM `employe` WHERE `titre`="Secrétaire"
+
+7-SELECT `nom`,`nodept` FROM `dept` WHERE `nodept`>40 ORDER BY `nodept
+
+8-SELECT nom, prenom FROM employe WHERE nom < prenom
+
+9-SELECT `nom`,`salaire`,`nodep` FROM `employe` WHERE `titre`="Représentant" AND `nodep`=35 AND`salaire`>20000
+
+10- SELECT employe.nom as "nom Employe", employe.titre as "titre de l'Employe", employe.salaire as "salaire de l'employe" 
+FROM employe WHERE employe.titre = "représentant" OR employe.titre = "président";
+
+11-SELECT `nom`,`titre`,`nodep`,`salaire` FROM `employe` WHERE `nodep`=34 AND (`titre`="Représentant" OR `titre`="Secrétaire")
+
+11-SELECT nom, titre, nodep, salaire
+FROM employe
+WHERE nodep=34 AND (titre="Représentant" OR titre="secrétaire" )
+
+12-SELECT nom, titre , nodep ,salaire from employe WHERE titre= "représentant" OR (titre= "secrétaire" AND nodep = 34)
+
+13-SELECT nom, salaire from employe WHERE `salaire` BETWEEN 20000 AND 30000
+
+15-SELECT nom from employe WHERE nom LIKE 'h%'
+
+16-SELECT nom from employe WHERE nom LIKE '%n'
+16-SELECT `nom` FROM `employe` WHERE RIGHT(`nom`,1)="n"
+
+17-SELECT nom from employe WHERE nom LIKE '__u%'
+17-SELECT nom FROM employe WHERE LOCATE("U",nom)=3
+
+18-SELECT salaire nom from employe WHERE `nodep` = 41 ORDER BY salaire
+
+19-SELECT salaire nom from employe WHERE `nodep` = 41 ORDER BY salaire DESC
+
+20-SELECT `titre`,`salaire`,`nom` from employe ORDER BY `titre`, `salaire` DESC
+
+21-SELECT `tauxcom`, `salaire`, `nom` FROM `employe` ORDER BY `tauxcom`
+
+22-SELECT `nom`, `salaire`, `tauxcom`, `titre` FROM `employe` WHERE `tauxcom` IS NULL
+
+23-SELECT `nom`, `salaire`, `tauxcom`, `titre` FROM `employe` WHERE `tauxcom` IS NOT NULL
+
+24-SELECT `nom`, `salaire`, `tauxcom`, `titre` FROM `employe` WHERE `tauxcom` < 15
+
+25-SELECT `nom`, `salaire`, `tauxcom`, `titre` FROM `employe` WHERE `tauxcom` > 15
+
+26-SELECT `nom`, `salaire`, `tauxcom`, (`salaire`*`tauxcom`) AS "Commission des employés" FROM `employe` WHERE `tauxcom` IS NOT NULL
+
+27-SELECT `nom`, `salaire`, `tauxcom`, (`salaire`*`tauxcom`) AS "Commission des employés" FROM `employe` WHERE `tauxcom` IS NOT NULL ORDER BY `tauxcom`
+
+28-SELECT CONCAT(`nom`, " ", `prenom`) AS "Employé" FROM `employe`
+
+29-SELECT SUBSTRING(`nom`,1,5) FROM `employe`
+
+30-SELECT `nom`, LOCATE("r",`nom`) as "Position du R" FROM `employe`
+
+31-SELECT CONCAT(UPPER(LEFT(`nom`, 1)), LOWER(SUBSTRING(`nom`,2 ))) as "Nom client", UPPER(`nom`), LOWER(`nom`) FROM `employe` WHERE `nom` = "Vrante"
+
+32-SELECT `nom`, LENGTH(`nom`) as "Nombre de lettre" FROM `employe`
+
+PARTIE 2 !!!
+
+
+
+1-SELECT employe.prenom, dept.noregion FROM `employe` INNER JOIN dept ON employe.nodep = dept.nodept
+
+2-SELECT dept.nodept AS "Numéro du département", dept.nom AS "Nom du département", employe.nom "Employé" FROM `employe` INNER JOIN dept ON employe.nodep = dept.nodept ORDER BY dept.nodept
+
+3-SELECT employe.nom FROM `employe` INNER JOIN dept ON employe.nodep = dept.nodept WHERE dept.nom LIKE "Distribution"
+
+4-SELECT employe.nom, employe.salaire FROM `employe` WHERE employe.salaire >= (SELECT `salaire` FROM employe WHERE `titre`="président")
+
+5-SELECT employe.nom, employe.titre FROM `employe` WHERE employe.titre = (SELECT `titre` FROM employe WHERE `nom`="amartakaldire")
+
+6-SELECT `nom`,`salaire` FROM `employe` WHERE `salaire` > ANY (SELECT `salaire` FROM `employe` WHERE `nodep`="31")
+
+7-SELECT `nom`,`salaire` FROM `employe` WHERE `salaire` > ANY (SELECT MAX(`salaire`) FROM `employe` WHERE `nodep`="31")
+
+8-SELECT `nom`, `titre` FROM `employe` WHERE `nodep` = 31 AND `titre` =( SELECT `titre` FROM `employe` WHERE `nodep` = "32" )
+
+9-SELECT `nom`, `titre` FROM `employe` WHERE `nodep` = 31 AND `titre` !=( SELECT `titre` FROM `employe` WHERE `nodep` = "32" )
+
+10-SELECT nom, titre, salaire FROM employe WHERE CONCAT(titre, salaire) = ( SELECT CONCAT(titre,salaire) FROM employe WHERE nom = "Fairent" )
+
+11-SELECT `nodep`, dept.`nom`, employe.nom FROM dept LEFT JOIN employe ON employe.nodep = dept.nodept ORDER BY employe.nodep
+
+12-SELECT COUNT(*), `titre` FROM `employe` GROUP BY `titre`
+
+13-SELECT ROUND( AVG(`salaire`)) AS "Moyenne des salaires", SUM(`salaire`) AS "Somme des salaires" FROM `employe` INNER JOIN dept ON employe.nodep = dept.nodept GROUP BY dept.nom
+
+14-SELECT nodep FROM employe GROUP BY nodep HAVING COUNT(nodep)>2
