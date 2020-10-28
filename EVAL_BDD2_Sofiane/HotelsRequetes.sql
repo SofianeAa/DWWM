@@ -24,7 +24,7 @@
 FROM
     stations
 INNER JOIN hotels ON stations.idStation = hotels.idStation
-INNER JOIN chambres ON hotels.idHotel = chambres.idHotel
+INNER JOIN chambres ON hotels.idHotel = chambres.idHotelz
 
 17-
 
