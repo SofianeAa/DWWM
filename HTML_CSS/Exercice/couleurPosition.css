@@ -1,0 +1,28 @@
+#vert {
+    height: 730px;
+    width: 70%;
+    background:green;
+}
+#bleu{
+    height: 220px;
+    width: 70%;
+    background: blue;
+}
+#rouge {
+    height: 730px;
+    width: 30%;
+    background:red;
+   
+}
+#jaune{
+    height: 220px;
+    width: 30%;
+    background: yellow;
+    position: absolute;
+    right: 4px;
+    top: 738px;
+    
+}
+.topp{
+    display:flex;
+}

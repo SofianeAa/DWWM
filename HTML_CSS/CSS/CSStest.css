@@ -1,0 +1,31 @@
+body {
+    background-color : burlywood;
+    cursor: url(../IMG/icone.png), auto ;
+}
+header {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#mainTitle {
+    border: 3px solid black;
+    font-weight: bold;
+    font-size: 80px;
+}
+
+#leVer{
+    opacity: 0;
+    transition: 1.5s;
+}
+#leVer:hover{
+    opacity: 1;
+}
+
+#gCho{
+    opacity: 0;
+    transition: 0.5s;
+}
+#gCho:hover{
+ 
+    opacity: 1;
+}
