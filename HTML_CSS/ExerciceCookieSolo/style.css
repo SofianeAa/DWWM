@@ -1,0 +1,51 @@
+body {
+    background-image: url("./Document_source/fond.jpg");
+}
+
+header {
+    background-image: url(./Document_source/header.jpg);
+    display: flex;
+    margin-top: 3vh;
+    margin-left: 15vh;
+    margin-right: 15vh;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 10vh;
+    font-weight: bold;
+}
+
+.logo {
+    flex: 0.1;
+}
+
+.titre {
+    flex: 1;
+}
+
+.espace {
+    flex: 0.4;
+}
+
+img {
+    width: 100%;
+}
+
+
+nav {
+   display: flex;
+   background: linear-gradient(rgb(43, 65, 194), rgb(54, 189, 212));
+    margin-left: 15vh;
+    margin-right: 15vh;
+}
+.menu {
+
+    margin-left: 25vw;
+    margin-top: 0.3%;
+    display: flex;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.bouton {
+ padding-right: 10%;
+ padding-left: 10%;
+}

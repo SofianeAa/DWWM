@@ -89,7 +89,6 @@ h1 {
   border: 2px outset;
   flex-direction: column;
   flex: 0.97;
-  width: 100px;
   height: 500px;
   font-weight: bold;
   background-color: #aa7455;
@@ -112,13 +111,11 @@ h1 {
   flex-basis:50%;
   height: 65%;
   line-height: 3.5;
-
 }
 .categorie a:hover {
   background: #754c34;
   color: white;
-  transition: background-color;
-  transition: all 0.2s ease;
+  transition: all 0.2s;
 }
 
 .contenuPrincipal {
@@ -139,3 +136,8 @@ h1 {
   display: flex;
   align-items: center; /* Utiliser une autre valeur pour voir le résultat */
 }
+
+.sousmenu  {
+  display: none;
+}
+
