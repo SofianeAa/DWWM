@@ -28,6 +28,18 @@ img{
     width: 100%;
 }
 
+.logo {
+    flex: 1;
+}
+
+.espace {
+    flex: 3.5;
+}
+
+.titre {
+    flex: 6;
+}
+
 .page {
     width: 80vw;
     flex-direction: column;
