@@ -1,3 +1,24 @@
 header {
+    display: flex;
     background-image: url(./sky.jpg);
-    background-size: ;
+    background-size: cover;
+    background-position: center;
+}
+.logo {
+    flex: 1;
+    margin: 1em;
+}
+
+.titre {
+    flex: 3;
+    align-self: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2em;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        letter-spacing: 0.4em;
+}
+
+img {
+    width: 100%;
+}
