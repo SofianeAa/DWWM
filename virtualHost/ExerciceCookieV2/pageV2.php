@@ -1,3 +1,5 @@
+<?php
+echo '
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -203,4 +205,4 @@
       </footer>
     </div>
   </body>
-</html>
+</html>';

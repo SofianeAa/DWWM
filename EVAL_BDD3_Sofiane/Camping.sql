@@ -120,3 +120,6 @@ ALTER TABLE Organise
 ADD CONSTRAINT Organise_Activites0_FK
 FOREIGN KEY (idActivites)
 REFERENCES Activites(idActivites);
+
+
+-- Table associative : 
