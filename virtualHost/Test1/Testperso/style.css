@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+}
+
+.corps {
+    display: flex;
+}
+
+footer {
+    display: flex;
+}

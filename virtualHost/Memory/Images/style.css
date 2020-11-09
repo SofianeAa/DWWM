@@ -1,0 +1,25 @@
+div {
+    display: flex;
+    flex: 1;
+}
+
+.verso {
+    display: none;
+}
+
+.images {
+    display: block
+}
+
+.espaceHorizontal {
+    display: block;
+    height: 3vh;
+}
+
+.case:hover .recto {
+    display: none;
+}
+
+.case:hover .verso {
+    display: flex;
+}
