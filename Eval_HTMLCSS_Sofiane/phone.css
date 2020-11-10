@@ -1,0 +1,13 @@
+@media screen and (max-width: 800px) {
+    .page {
+      width: 100vw;
+    }
+.contenu {
+    flex-direction: column;
+}
+
+.partieDroite {
+  margin-top: 1em;
+}
+
+}
