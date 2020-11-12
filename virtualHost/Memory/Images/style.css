@@ -23,3 +23,7 @@ div {
 .case:hover .verso {
     display: flex;
 }
+
+body {
+    background-color: burlywood;
+}
