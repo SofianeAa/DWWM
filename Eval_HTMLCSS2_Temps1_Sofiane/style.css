@@ -1,0 +1,180 @@
+img {
+    width: 100%;
+    box-shadow: 0px 0px 10px 4px #ccdde7;
+    border: 0.8em white solid;
+}
+header {
+    display: flex;
+    flex: 1;
+}
+
+body {
+    background-color: #e5ebf7;
+}
+
+nav {
+    display: flex;
+    flex: 10;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+}
+
+
+
+.logo {
+    flex: 0.7;
+}
+
+.logo img{
+   box-shadow: none;
+   border: none;
+}
+
+.bouton {
+    flex: 1;
+    height: 100%;
+    line-height: 6.5em;
+}
+
+.bouton:hover a {
+    color: white;
+}
+
+.menu {
+    display: none;
+    background-color: #2b87be;
+    position: absolute;
+    width: 21.75%;
+}
+
+nav :hover {
+    background-color:#0a6290;
+    color: white;
+}
+
+.bouton:hover .menu {
+    display: flex;
+    flex-direction: column;
+}
+
+a:any-link {
+    text-decoration: none;
+  }
+
+.tete {
+    background-color: #0a6290;
+    background: linear-gradient(#0a6290,#e5ebf7);
+    padding-top: 0.3em;
+}
+
+.tete img {
+    box-shadow: none;
+    background-color: #e5ebf7;
+    border: none;
+}
+
+.corps {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    padding: 3em;
+    margin-top: 3em;
+}
+
+h1 {
+    color: #0a6290;
+    font-size: 1.5em;
+    margin-block-start: 0em;
+    margin-block-end: 1em;
+}
+
+.bloc {
+    margin-bottom: 0.7em;
+}
+
+.p1 {
+    margin-bottom: 1em;
+}
+
+.blocColone {
+    display: flex;
+}
+
+.image {
+    flex: 1;
+}
+
+.texte {
+    flex: 2;
+    margin-left: 3em;
+}
+
+.blocFinal {
+    display: flex;
+    flex: 1;
+    margin-bottom: 5em;
+}
+
+.dernierText {
+    margin-left: 3em;
+}
+
+.reseaux {
+    display: flex;
+    flex: 1;
+    text-align: right;
+}
+
+.partage {
+    flex: 8;
+    align-self: center;
+}
+
+.imagesReseau {
+    display: flex;
+    flex: 1;
+}
+.imageReseau {
+    display: flex;
+    padding: 0.5em;
+    flex: 1;
+}
+.imagesReseau img {
+    box-shadow: none;
+}
+
+footer {
+    background-color: #0a6290;
+    width: 100%;
+    color: white;
+    display: flex;
+    margin-top: 4em;
+}
+
+.hautFooter {
+    display: flex;
+    flex: 1;
+    padding: 3em;
+    justify-content: center;
+    text-align: center;
+}
+
+.esat {
+    margin-right: 5em;
+    margin-left: 5em;
+    text-align: justify;
+}
+
+.textMenu {
+    position: relative;
+    z-index: 2;
+    left: 0em;
+    bottom: 2.5em;
+    text-align: center;
+    color: white;
+    font-size: 4em;
+}
+.pointeur {
+    transform: rotate(180deg);
+}
