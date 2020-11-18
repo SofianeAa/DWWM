@@ -1,0 +1,7 @@
+@media screen and (max-width: 800px) {
+  .contenu {
+    width: 100%;
+    align-self: center;
+  }
+  
+}

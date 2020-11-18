@@ -1,0 +1,1 @@
+<div class="corps">Ceci est le contenu</div>
