@@ -3,38 +3,19 @@
 include "./PHP/VIEW/head.php";
 include "./PHP/VIEW/header.php";
 
-/* Test Manager */
-
-// on teste la recherche par ID
-echo 'recherche id = 1' . '<br>';
-$p = ProduitsManager::findById(1);
-var_dump($p);
+$produits= ProduitsManager::getList();
 
 
-// on teste l'ajout
-echo "ajout d'un produit" . '<br>';
-$pNew = new Produits(["libelleProduit" => "cahier", "prix" => 5, "dateDeperemption" => '2020-12-31']);
-ProduitsManager::add($pNew);
 
 
-// on teste la mise à jour
-echo "on met à jour l'id 1" . '<br>';
-$p->setLibelleProduit($p->getLibelleProduit() . ' XL');
-ProduitsManager::update($p);
-$pRecharge = ProduitsManager::findById(1);
-var_dump($pRecharge);
-
-// // // on teste la suppression
-// echo "on supprime un article" . '<br>';
-// $pSuppr = ProduitsManager::findById(3);
-// ProduitsManager::delete($pSuppr);
-
-//on affiche la liste des produits
-echo "Liste des articles" . '<br>';
-$tableau = produitsManager::getList();
-foreach ($tableau as $unProduit)
+foreach ($produits as $unProduit)
 {
-    echo $unProduit->toString() . '<br>';
-}
+    echo "<div class = 'nomProduit'>";
+    echo "<div class ='libelle'>" .$unProduit->getLibelleProduit(). "</div>";
+    echo "<div class ='buttons'>";
+    echo '<a href="detail.php?id='.$unProduit->getIdProduit().'"> <div class ="buttonDet"> Details </div> </a>';
+    echo '<a href=""> <div class ="buttonSuppr"> Modifier </div> </a>';
+    echo '<a href="delete.php?id='.$unProduit->getIdProduit().'> <div class ="buttonSuppr"> Suppr </div> </a>';
+    echo "</div>";
 
-include "PHP/VIEW/Footer.php";
+}
