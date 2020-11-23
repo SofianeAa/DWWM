@@ -3,21 +3,6 @@
 <head>
 <?php
 
-function chargerClasse($classe)
-{
-    if (file_exists("Php/CONTROLLER/" . $classe . ".class.php"))
-    {
-        require "Php/CONTROLLER/" . $classe . ".class.php";
-    }
-
-    if (file_exists("Php/MODEL/" . $classe . ".class.php"))
-    {
-        require "Php/MODEL/" . $classe . ".class.php";
-    }
-
-}
-spl_autoload_register("chargerClasse");
-
 // initialise une connection
 DbConnect::init();
 //Si le titre est indiqué, on l'affiche entre les balises <title>

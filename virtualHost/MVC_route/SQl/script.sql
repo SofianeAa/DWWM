@@ -1,16 +1,19 @@
+  
 
 --
 -- Base de données :  baseproduits
 --
+DROP DATABASE baseproduits;
 CREATE DATABASE IF NOT EXISTS baseproduits ;
 USE baseproduits;
 
 
+DROP TABLE IF EXISTS produits;
 CREATE TABLE IF NOT EXISTS produits (
-    idproduit int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    libelleProduit varchar(50) NOT NULL,
-    prix int(11) NOT NULL,
-    dateDePeremption date NOT NULL
+  idProduit int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  libelleProduit varchar(50) NOT NULL,
+  prix int(11) NOT NULL,
+  dateDePeremption date NOT NULL
 ) ENGINE=InnoDB ;
 
 --
