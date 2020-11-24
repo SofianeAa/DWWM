@@ -1,62 +1,21 @@
 <?php
 
-function ChargerClasse($classe)
+include "./PHP/VIEW/head.php";
+include "./PHP/VIEW/header.php";
+
+$produits= ProduitsManager::getList();
+
+
+
+
+foreach ($produits as $unProduit)
 {
-    if (file_exists(("PHP/CONTROLLER/" . $classe . ".Class.php")))
-    {
-        require "PHP/CONTROLLER/" . $classe . ".Class.php";
-    }
-    if (file_exists("PHP/MODEL/" . $classe . ".Class.php"))
-    {	
-        require "PHP/MODEL/" . $classe . ".Class.php";
-    }
-}
-spl_autoload_register("ChargerClasse");
+    echo "<div class = 'nomProduit'>";
+    echo "<div class ='libelle'>" .$unProduit->getLibelleProduit(). "</div>";
+    echo "<div class ='buttons'>";
+    echo '<a href="detail.php?id='.$unProduit->getIdProduit().'"> <div class ="buttonDet"> Details </div> </a>';
+    echo '<a href=""> <div class ="buttonSuppr"> Modifier </div> </a>';
+    echo '<a href="delete.php?id='.$unProduit->getIdProduit().'> <div class ="buttonSuppr"> Suppr </div> </a>';
+    echo "</div>";
 
-
-function AfficherPage ($page)
-{
-    $chemin = $page[0];
-    $nom = $page[1];
-    $titre = $page[2];
-
-    include 'PHP/VIEW/head.php';
-    include 'PHP/VIEW/header.php';
-    include $chemin . $nom . '.php';
-    include 'PHP/VIEW/Footer.php';
-}
-
-DbConnect::Init();
-
-
-$routes = [
-    "default" => ["PHP/VIEW/", "liste", "Liste de produits"],
-    "liste" => ["PHP/VIEW/", "liste", "Liste de produits"],
-    "detail" => ["PHP/VIEW/", "detail", "Détail du produit"],
-    "test" => ["PHP/VIEW/", "test", "Détail du produit"]
-];
-
-if (isset($_GET["code"]))
-{
-
-    $code = $_GET["code"];
-
-    //Si cette route existe dans le tableau des routes
-    if (isset($routes[$code]))
-    {
-        //Afficher la page correspondante
-        AfficherPage($routes[$code]);
-    }
-    else
-    {
-        //Sinon afficher la page par defaut
-        AfficherPage($routes["default"]);
-    }
-
-}
-else
-{
-    //Sinon afficher la page par defaut
-    AfficherPage($routes["default"]);
-
-}
+} 

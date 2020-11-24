@@ -37,10 +37,11 @@ DbConnect::init();
 /* création d'u tableau de redirection, en fonction du code, on choisit la page à afficher */
 $routes = [
     "default" => ["PHP/VIEW/", "Liste", "Liste de produits"],
-
     "liste" => ["PHP/VIEW/", "Liste", "Liste de produits"],
     "detail" => ["PHP/VIEW/", "Detail", "Détail du produit"],
-    "test" => ["PHP/VIEW/", "test", "Détail du produit"]
+    "test" => ["PHP/VIEW/", "test", "Détail du produit"],
+    "delete" => ["PHP/VIEW/", "delete", "Suppression du produit"]
+    ""
     
 ];
 
