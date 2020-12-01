@@ -1,3 +1,4 @@
+
 <?PHP
 /* Autoload permet de charger toutes les classes necessaires */
 function ChargerClasse($classe)
@@ -7,18 +8,12 @@ function ChargerClasse($classe)
         require "PHP/CONTROLLER/" . $classe . ".Class.php";
     }
     if (file_exists("PHP/MODEL/" . $classe . ".Class.php"))
-    {	
+    {
         require "PHP/MODEL/" . $classe . ".Class.php";
     }
 }
 spl_autoload_register("ChargerClasse");
 
-/**
- * Méthode qui permet d'affichre une page en fonction de ces paramètres
- * $page tableau contenant 3 valeurs    le chemein d'acces à la page
- *                                      le nom de la page
- *                                      le titre à afficher sur la page
- */
 function AfficherPage($page)
 {
     $chemin = $page[0];
@@ -32,28 +27,33 @@ function AfficherPage($page)
     include 'PHP/VIEW/Footer.php';
 }
 
-function crypte($mot) //fonction qui crypte le mot de passe
-{
-    return md5(pi(md5($mot) . strlen($mot)));
-}
-
-
 //on active la connexion à la base de données
 DbConnect::init();
-session_start();  // initialise la variable de Session
+session_start(); // initialise la variable de Session
+
+/***************************GESTION DES LANGUES ******************/
+// on recupere la langue de l'URL
+if (isset($_GET['lang']))
+{
+    $_SESSION['lang'] = $_GET['lang'];
+}
+
+//on prend la langue de la session sinon FR par défaut
+$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'FR';
+
+/**
+ * fonction qui ramène le texte dans la bonne langue
+ */
+function texte($codetexte)
+{
+    global $lang; //on appel la variable globale
+    return TexteManager::findByCodes($lang, $codetexte);
+}
+
 /* création d'u tableau de redirection, en fonction du codePage, on choisit la page à afficher */
 $routes = [
     "default" => ["PHP/VIEW/", "Accueil", "Accueil"],
 
-    "inscription" => ["PHP/VIEW/", "FormInscription", "Identification"],
-    "actionInscription" => ["PHP/VIEW/", "actionInscription", "xx"],
-    "connection" => ["PHP/VIEW/", "FormConnection", "Identification"],
-    "actionConnection" => ["PHP/VIEW/", "actionConnection", "xx"],
-    "accueil" => ["PHP/VIEW/", "Accueil", "Accueil"],
-    "deconnection" => ["PHP/VIEW/", "Actiondeconnection", "xx"],
-    "admin" => ["PHP/VIEW/", "Admin", "Admin"],
-    "user" => ["PHP/VIEW/", "User", "User"]
-   
 ];
 
 if (isset($_GET["codePage"]))
