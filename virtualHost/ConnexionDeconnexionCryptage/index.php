@@ -25,6 +25,11 @@ function AfficherPage($page)
     include 'PHP/VIEW/Footer.php';
 }
 
+function crypte($mot) //fonction qui crypte le mot de passe
+{
+    return md5(md5($mot) . strlen($mot));
+}
+
 DbConnect::init();
 
 $routes = [
