@@ -1,0 +1,39 @@
+body {
+  background-color: gray;
+  color: blanchedalmond;
+}
+
+header {
+  display: flex;
+  flex: 1;
+}
+img {
+  width: 100%;
+}
+
+.logoAfpa {
+  flex: 1;
+}
+
+.titre {
+  flex: 3;
+  color: green;
+  background-color: honeydew;
+  border-radius: 5%;
+  font-size: 3em;
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+}
+
+.titreEspace {
+    flex: 2;
+}
+
+.nomProduit {
+    display: flex;
+    flex-direction: column;
+}
