@@ -117,3 +117,10 @@ INSERT	INTO	VENTES	(IdVente, IdRepres,	IdProduit,	IdClient,	Quantité)	VALUES	(9
 INSERT	INTO	VENTES	(IdVente, IdRepres,	IdProduit,	IdClient,	Quantité)	VALUES	(10,3,	1,	1,	3);
 INSERT	INTO	VENTES	(IdVente, IdRepres,	IdProduit,	IdClient,	Quantité)	VALUES	(11,3,	4,	1,	5);
 INSERT	INTO	VENTES	(IdVente, IdRepres,	IdProduit,	IdClient,	Quantité)	VALUES	(12,3,	1,	3,	1);
+
+
+INSERT INTO users (idUser, nomUser, prenomUser, pseudoUser, mdpUser, adresseMailUser, roleUser) VALUES
+(1, 'Cugny', 'Maxime', 'Maxina', 'Glrv56zc', 'maxime.cgn@gmail.com', 1),
+(2, 'Baratto', 'Marvine', 'Marvina', 'cookies', 'baratto.m@gmail.com', 2),
+(3, 'Aarous', 'Sofiane', 'Sofia', '1234', 'sofiane.a@gmail.com', 3),
+(4, 'Laforce', 'Amanda', 'Armando', 'motdepasse', 'amanda.l@gmail.com', 1);

@@ -1,6 +1,7 @@
 <body>
     <header>
-    <div class="titre centrer"><h1>Accueil</h1></div>
+    <a href="./index.php">
+    <div class="titre centrer"><h1>Accueil</h1></div></a>
 
     <?php if (isset($_SESSION['user'])) {echo '
         <a href="index.php?page=ActionsUsers&typeAction=deconnexion"

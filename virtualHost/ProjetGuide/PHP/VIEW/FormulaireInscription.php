@@ -1,6 +1,6 @@
 <?php
 
-echo '<form method="POST" action="index.php?page=ActionsUsers&typeAction=inscription">
+echo '<form method="POST" action="index.php?page=ActionConnexion&typeAction=inscription">
 <div class="contenu">
     <div class="espace"></div>
     <div class="contenuLigne colonne">

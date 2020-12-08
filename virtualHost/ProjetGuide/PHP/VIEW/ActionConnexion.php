@@ -1,6 +1,6 @@
 <?php
 
-$typeAction = $GET["typeAction"];
+$typeAction = $_GET["typeAction"];
 if ($typeAction == "inscription")
 {
     $p = UsersManager::findByPseudo($_POST['pseudoUser']);
@@ -8,7 +8,7 @@ if ($typeAction == "inscription")
     {
         $user = new Users(["nomUser" => $_POST['nomUser'], "prenomUser" => $_POST['prenomUser'], "pseudoUser" => $_POST['pseudoUser'], "mdpUser" => crypte($_POST['mdpUser']), "adresseMailUser" => $_POST['adresseMailUser'], "roleUser" => $_POST['roleUser']]);
         UsersManager::add($user);
-        header("location:index.php?page=index.php");
+        header("location:index.php?page=FormulaireConnexion");
     } 
     else
     {
