@@ -1,0 +1,17 @@
+html, body {
+	margin : 0;
+	padding : 0;
+	font-family: Helvetica, Arial, sans-serif;
+	color:var(--couleurPolice);
+	background-color: whitesmoke;
+}
+
+div, header, footer, nav, article {
+	display : flex;
+	flex : 1;
+}
+
+img, video {
+	width : 100%;
+}
+
