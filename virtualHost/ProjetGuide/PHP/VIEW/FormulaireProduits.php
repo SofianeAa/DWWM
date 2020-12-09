@@ -8,12 +8,12 @@ switch ($mode) {
         }
     case "modifier": 
         {
-            echo'<div>Modifier un produit</div><form id="formulaire" method="post" action="index.php?page=actionProduits&mode=modifProduit';
+            echo'<div>Modifier le produit :</div><form id="formulaire" method="post" action="index.php?page=actionProduits&mode=modifProduit';
             break;
         }
     case "supprimer":
         {
-            echo'<div>Supprimer un produit</div><form id="formulaire" method="post" action="index.php?page=actionProduits&mode=delProduit';
+            echo'<div>Supprimer le produit :</div><form id="formulaire" method="post" action="index.php?page=actionProduits&mode=delProduit';
             break;
         }
 }
@@ -24,23 +24,26 @@ if (isset($_GET['id']))
 } ?>
 <input type="hidden" name="idProduit" <?php if (isset($option)) echo 'value="'.$option->getIdProduit().'"'; ?> >
 
-<div>Nom du Produit</div>
 <input type="text" name="nomProduit" <?php if (isset($option)) echo 'value="'.$option->getNomProduit().'"'; 
-if ($mode=="supprimer" ||$mode=="modifier")echo 'disabled';?>
+if ($mode=="supprimer")echo 'disabled';?>
+<input type="text" name="CouleurProduit" <?php if (isset($option)) echo 'value="'.$option->getCouleurProduit().'"'; 
+if ($mode=="supprimer")echo 'disabled';?>
+<input type="text" name="PoidsProduit" <?php if (isset($option)) echo 'value="'.$option->getPoidsProduit().'"'; 
+if ($mode=="supprimer")echo 'disabled';?>
 
 <?php
     switch($mode){
         case "ajout":
             {
-                echo '<input type="submit" value="Ajouter"/>';
+                echo '<input type="submit" name="Ajouter" value="Ajouter"/>';
             }
         case "modifier":
             {
-                echo '<input type="submit" value="Modifier"/>';
+                echo '<input type="submit" name="Modifier" value="Modifier"/>';
             }
         case "supprimer":
             {
-                echo '<input type="submit" value="ASupprimer"/>';
+                echo '<input type="submit" name="Supprimer" value="Supprimer"/>';
             }
     }
 ?>

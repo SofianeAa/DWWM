@@ -1,17 +1,17 @@
 <?php
 $p = new Produits($_POST);
 switch ($_GET['mode']) {
-    case "ajoutProduit":
+    case "ajout":
         {
             ProduitsManager::add($p);
             break;
         }
-    case "modifProduit":
+    case "modifier":
         {
             ProduitsManager::update($p);
             break;
         }
-    case "delProduit" : {
+    case "supprimer" : {
         ProduitsManager::delete($p);
     break;
     }
