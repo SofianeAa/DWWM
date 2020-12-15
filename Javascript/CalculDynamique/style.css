@@ -1,0 +1,9 @@
+body, div{
+    display: flex;
+    justify-content: center;
+    background-color: paleturquoise;
+}
+
+.colonne {
+    flex-direction: column;
+}
