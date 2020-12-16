@@ -1,0 +1,24 @@
+/****  GENERAL ****/
+:root {
+	--couleurFond: #f8cbad;
+	--couleurBouton: #f2a16a;
+}
+
+html, body {
+	margin : 0;
+	padding : 0;
+}
+
+div, header, footer, nav, article {
+	display : flex;
+	flex : 1;
+}
+
+img, video {
+	width : 100%;
+}
+
+.centrer {
+	align-items: center;
+	justify-content: center;
+}
