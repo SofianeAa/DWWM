@@ -15,6 +15,10 @@ for (let i = 0; i < recto.length; i++) {
         if (check.length == 2) {
             if (check[0] == check[1]) {
                 compteurPaire++;
+                if (compteurPaire == 8 ) {
+                    setTimeout(function() { alert("Bravo gagné")}, 1000);;
+                    setTimeout(function() { document.location.reload()}, 1150);
+                }
                 check = [];
                 memoverso = [];
                 memorecto = [];
@@ -24,9 +28,7 @@ for (let i = 0; i < recto.length; i++) {
             etat = false;
         }
     });
-    if (compteurPaire == 8 ) {
-        alert("Bravo vous avez gagné");
-    }
+
 }
 
 function returnImg(e, etat) {
@@ -84,11 +86,7 @@ function solution() {
 }
 
 var buttonreset = document.getElementById("reset");
-button.addEventListener("click", reset);
-
-// function reset() {
-//     document.location.reload();
-// }
+buttonreset.addEventListener("click", function() {document.location.reload()});
 
 
 // var 
