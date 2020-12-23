@@ -18,13 +18,20 @@ for (let i = 0; i < nb.length; i++) {
     })
 }
 
-/***********************       Deplacement des éléments      ***********************/
+/************************       Deplacement des éléments      ************************/
 
 function cliclic(element) {
     var boutonClique = element.target;
     var valeurBouton = boutonClique.textContent;
-    var xClic = parseInt(element.target.getAttribute("cX"));
-    var yClic = parseInt(element.target.getAttribute("cY"));
-    var stylePlein = element.target.style.backgroundColor = "rgb(151, 108, 78)";
-    var styleVide = element.target.style.backgroundColor = "wheat";
+    // var xClic = parseInt(element.target.getAttribute("cX"));
+    // var yClic = parseInt(element.target.getAttribute("cY"));
+    // var stylePlein = element.target.style.backgroundColor = "rgb(151, 108, 78)";
+    // var styleVide = element.target.style.backgroundColor = "wheat";
+    if (boutonClique.getAttribute("class", "plein")) {
+        boutonClique.setAttribute("class","vide");
+        vide.textContent=
+    }
+
+
+
 }
