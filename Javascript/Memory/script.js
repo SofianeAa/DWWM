@@ -3,7 +3,9 @@ var etat = true;
 var check = [];
 var memorecto = [];
 var memoverso = [];
+var compteurPaire = 0;
 
+var affichePaire = document.getElementById("nbPaire").te
 
 for (let i = 0; i < recto.length; i++) {
     recto[i].addEventListener("click", function (e) {
@@ -12,11 +14,16 @@ for (let i = 0; i < recto.length; i++) {
         }
         if (check.length == 2) {
             if (check[0] == check[1]) {
+                compteurPaire++;
+                if (compteurPaire == 8 ) {
+                    setTimeout(function() { alert("Bravo gagné")}, 1000);;
+                    setTimeout(function() { document.location.reload()}, 1150);
+                }
                 check = [];
                 memoverso = [];
                 memorecto = [];
             } else {
-                timeout = setTimeout(returnImg, 1500, e, false);
+                timeout = setTimeout(returnImg, 1300, e, false);
             }
             etat = false;
         }
@@ -48,3 +55,37 @@ function returnImg(e, etat) {
     }
 
 }
+
+var button = document.getElementById("solution");
+button.addEventListener("click", solution);
+var sol = false;
+function solution() {
+
+    var listeRecto = document.getElementsByClassName("recto")
+    var listeVerso = document.getElementsByClassName("verso")
+    for (let i = 0; i < listeRecto.length; i++) {
+
+        if (sol == false) {
+            listeRecto[i].style.display = "none";
+            listeVerso[i].style.display = "flex";
+
+        } else if (sol == true) {
+            listeRecto[i].style.display = "flex";
+            listeVerso[i].style.display = "none";
+        }
+        
+    }
+    if (sol == false) {
+        sol = true;
+    } else {
+        sol = false;
+    }
+    setTimeout(function() { alert("Ne trichez pas !")}, 2000);
+    setTimeout(function() { document.location.reload()}, 2100);
+}
+
+var buttonreset = document.getElementById("reset");
+buttonreset.addEventListener("click", function() {document.location.reload()});
+
+
+// var 

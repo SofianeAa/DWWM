@@ -2,13 +2,16 @@
     padding: 0;
     margin: 0;
 }
-
+body{
+    background-color:burlywood;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
 h1{
     text-align: center;
 }
 body{
     display: block;
-    background-color: burlywood;
 }
 img{
     width: 100%;
@@ -30,3 +33,11 @@ img{
 .verso{
     display: none ;
 }
+/* 
+.case:hover .verso{
+    display: flex;
+}
+
+.case:hover .recto{
+    display: none;
+} */
