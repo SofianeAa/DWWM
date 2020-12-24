@@ -31,7 +31,8 @@ function depl_ok(tob, lob, wob, hob, t, l, w, h) {
 var ecartY, ecartX; // repère le décalage entre le coin suprieur du carré et la souris
 var carre = document.getElementById('carre');
 var flagMouv = false;
-var compteurCollision = 0
+var compteurCollision = 0;
+var chronolance = false;
 
 //avec les touches du clavier
 
@@ -39,18 +40,32 @@ window.addEventListener("keydown", function (event) {
    
     switch (event.key) {
         case "ArrowDown":
-            deplace(0, 5);
+            deplace(0, 1);
             break;
         case "ArrowUp":
-            deplace(0, -5);
+            deplace(0, -1);
             break;
         case "ArrowLeft":
-            deplace(-5, 0);
+            deplace(-1, 0);
             break;
         case "ArrowRight":
-            deplace(5, 0);
+            deplace(1, 0);
+        case "y" :
+            if (event.ctrlKey){
+                alert("cheat code");
+                if (flagMouv == false) {
+                    flagMouv = true;
+                    }
+                else if (flagMouv == true) {
+                    flagMouv = false
+                   }
+            }
     }
-
+    
+    if (chronolance==false){
+        debut=Date.now();
+        chronolance=true;
+    }
 },);
 
 
@@ -71,6 +86,10 @@ document.addEventListener("mousemove", (e) =>
     if(flagMouv == true)
     {
         deplaceSouris(e);
+        if (chronolance==false){
+            debut=Date.now();
+            chronolance=true;
+        }
     }
 });
 
@@ -83,10 +102,14 @@ carre.addEventListener("mouseup", (e) =>
 
 //avec la souris
 function deplaceSouris(e) {
-    if (!collisionObstacles(parseInt(e.clientY) + ecartY, parseInt(e.clientX) + ecartX)) {
+    var arriveeCase=document.querySelector(".arrivee");
+    if (arrivee(arriveeCase, parseInt(e.clientY)+ecartY,parseInt(e.clientX)+ecartX)) {
+        console.log("gg")
+    }
+    else if (!collisionObstacles(parseInt(e.clientY) + ecartY, parseInt(e.clientX) + ecartX)) {
         // on deplace le carré en fonction de la position de la souris et de l'ecart du départ
         carre.style.top = parseInt(e.clientY) + ecartY + "px";
-        carre.style.left = parseInt(e.clientX) + ecartX + "px";
+        carre.style.left = parseInt(e.clientX) + ecartX + "px"; 
     }
 };
 
@@ -99,11 +122,14 @@ function collisionUnObstacle(obstacle, posX, posY) {
     var lob = parseInt(styleObstacle.left);
     var wob = parseInt(styleObstacle.width);
     var hob = parseInt(styleObstacle.height);
-    if (posY < lob + wob && posY + w > lob && posX < tob + hob && posX + h > tob) {
-        console.log("collision n°" + compteurCollision + "  " + obstacle.id);
-        flagMouv = false;
-        compteurCollision++;
+    if (obstacle.classList.contains("negatif")){
+    
+        if (posY < lob + wob && posY + w > lob && posX < tob + hob && posX + h > tob) {
+            console.log("collision n°" + compteurCollision + "  " + obstacle.id);        
+            compteurCollision++;       
+            flagMouv = false;      //collision ici 
         return true;
+        }
     }
     return false;
 }
@@ -121,4 +147,23 @@ function collisionObstacles(posX, posY) {
         pasCollision = pasCollision && !collisionUnObstacle(obstacle, posX, posY);
     });
     return !pasCollision;
+}
+
+function arrivee (arrivee, posX, posY) {
+    var styleObjet = window.getComputedStyle(carre);
+    var w = parseInt(styleObjet.width);
+    var h = parseInt(styleObjet.height);
+    var styleArrivee = window.getComputedStyle(arrivee);
+    var tob = parseInt(styleArrivee.top);
+    var lob = parseInt(styleArrivee.left);
+    var wob = parseInt(styleArrivee.width);
+    var hob = parseInt(styleArrivee.height);
+    if (posY < lob + wob && posY + w > lob && posX < tob + hob && posX + h > tob) {
+        fin=Date.now()
+        difftime=fin-debut
+        alert("Vous êtes arrivé ! \nVous vous êtes cogné contre " + compteurCollision + " murs !\nEn " + difftime/1000 + " secondes");
+        flagMouv = false;
+        document.location.reload();
+        return true;
+    }
 }
