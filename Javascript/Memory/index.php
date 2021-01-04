@@ -40,8 +40,8 @@ for ($a = 1; $a < 5; $a++) {
             <div class="espace"></div>
 
             <div class="case">
-                <img class="recto" value="' . $compteur . '" src="./img/jerry.png" alt="">
-                <img class="verso" value="' . $compteur . '" src="./img/' . $nb . '.png" alt="">
+                <img class="recto" value="' . $compteur . '" src="./IMG/jerry.png" alt="">
+                <img class="verso" value="' . $compteur . '" src="./IMG/' . $nb . '.png" alt="">
             </div>
             <div class="espace"></div>';
         unset($tab[$pos]);

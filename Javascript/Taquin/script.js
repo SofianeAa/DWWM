@@ -1,6 +1,6 @@
 /***********************       Génération aléatoire des cases      ***********************/
 
-
+var cases = document.getElementsByClassName("case")
 var plein = document.getElementsByClassName("plein");
 var vide = document.getElementsByClassName("vide");
 
@@ -10,28 +10,29 @@ var nb = [1, 2, 3, 4, 5, 6, 7, 8]
 nb=nb.map(p => [p, Math.random()]) 
 nb=nb.sort((a, b) => a[1] - b[1])
 nb=nb.map(p => p[0])
+nb.push(9)
+xVide=3
+yVide=3
 
-for (let i = 0; i < nb.length; i++) {
-    plein[i].textContent = nb[i];
-    plein[i].addEventListener("click", function(e) {
+for (i = 0; i < nb.length+1; i++) {
+    cases[i].textContent = nb[i];
+    cases[i].addEventListener("click", function(e) {
         cliclic(e);
     })
 }
 
 /************************       Deplacement des éléments      ************************/
 
-function cliclic(element) {
+function cliclic(element,i) {
     var boutonClique = element.target;
-    var valeurBouton = boutonClique.textContent;
-    // var xClic = parseInt(element.target.getAttribute("cX"));
-    // var yClic = parseInt(element.target.getAttribute("cY"));
-    // var stylePlein = element.target.style.backgroundColor = "rgb(151, 108, 78)";
-    // var styleVide = element.target.style.backgroundColor = "wheat";
-    if (boutonClique.getAttribute("class", "plein")) {
-        boutonClique.setAttribute("class","vide");
-        vide.textContent=
+    var boutonVide = document.getElementsByClassName("vide")[0];
+    var xClic = parseInt(element.target.getAttribute("x"));
+    var yClic = parseInt(element.target.getAttribute("y"));
+    if (boutonClique.getAttribute("class", "case plein")) {
+        xVide=xClic;
+        yVide=yClic;
+        boutonVide.innerHTML=boutonClique.innerHTML;
+        boutonClique.setAttribute("class","case vide")
+        boutonVide.setAttribute("class","case plein")
     }
-
-
-
 }
