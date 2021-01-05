@@ -1,0 +1,33 @@
+input[required] +span::before{
+    content: "*";
+    color: red;
+}
+
+body {
+    background-color: rgb(43, 43, 43);
+    color: blanchedalmond;
+    display: flex
+}
+
+label {
+    display:inline-block;
+    width:8em;
+    text-align:right;
+  }
+
+.infobulle{
+  position: relative; 
+  cursor: help;
+}
+
+.infobulle:hover::after{
+  content: attr(title);  
+  position: absolute;
+  top: -2.4em;
+  transform: translateX(-50%);
+  z-index: 1;
+  white-space: nowrap; 
+  background-color: rgb(68, 68, 68);
+  border-radius:5px;
+  padding:0.3em;
+}

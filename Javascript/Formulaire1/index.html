@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Formulaire</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Manipulation des formulaires</title>
+  </head>
+
+  <body>
+    <fieldset>
+      <legend>Formulaire informatif</legend>
+      <form>
+        <div class="explication">
+          (Les cases suivit de * sont des champs obligatoire)
+        </div>
+        <p toto>
+          <label for="Nom">Nom  :</label>
+          <input
+            type="text"
+            name="nom"
+            id="nom"
+            required
+            placeholder="blabla"
+          />
+          <span id="aideNom"></span>
+          <span class="infobulle" title="Entrez votre nom">?</span>
+        </p>
+        <p>
+          <label for="ddn">Date de naissance :</label>
+          <input type="date" name="ddn" id="ddn" required />
+          <span id="aideddn"></span>
+          <span class="infobulle" title="Entrez votre date de naissance">?</span>
+        </p>
+        <p>
+          <label for="codepostal">Code postal :</label>
+          <input
+            type="text"
+            name="codepostal"
+            id="codepostal"
+            required
+            placeholder="00 000"
+          />
+          <span id="aideCodePostal"></span>
+          <span class="infobulle" title="Entrez votre code postal (5 chiffres)">?</span>
+        </p>
+
+        <input type="submit" value="Envoyer" />
+      </form>
+    </fieldset>
+    <script src="script.js"></script>
+  </body>
+</html>
