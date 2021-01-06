@@ -49,14 +49,23 @@ else {
 
 codePostalElt = document.getElementById("codepostal");
 
-codePostalElt.addEventListener("blur", function (e) {
-    codePostalElt.style.border = "3px solid red"
-    if (codePostalElt.value.length==5){
-      for (i=0; i<codePostalElt.value.length;i++){
-          if (codePostalElt.value.charCodeAt(i)<58 && codePostalElt.value.charCodeAt(i)>47){
-            codePostalElt.style.border = "3px solid green"
-          }
-     }
+// codePostalElt.addEventListener("blur", function (e) {
+//     codePostalElt.style.border = "3px solid red"
+//     if (codePostalElt.value.length==5){
+//       for (i=0; i<codePostalElt.value.length;i++){
+//           if (codePostalElt.value.charCodeAt(i)<58 && codePostalElt.value.charCodeAt(i)>47){
+//             codePostalElt.style.border = "3px solid green"
+//           }
+//      }
 
-    }
+//     }
+// });
+
+codepostalOk = document.getElementById("codepostalOk");
+
+codePostalElt.addEventListener("blur", function (e) {
+    codePostalElt.style.border = "3px solid red";
+    if (codePostalElt.checkvalidity()){
+      codePostalElt.style.border= "3px solid green";
+     }
 });
