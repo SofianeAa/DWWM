@@ -69,3 +69,46 @@ codePostalElt.addEventListener("blur", function (e) {
       codePostalElt.style.border= "3px solid green";
      }
 });
+
+
+eyeiconElt=document.getElementById("oeil");
+eyeiconconfElt=document.getElementById("oeilconf");
+passwordElt=document.getElementById("password");
+passwordconfElt=document.getElementById("passwordconf");
+
+eyeiconElt.addEventListener("click", function (e) {
+    if (passwordElt.type === "password") {
+    passwordElt.type = "text";
+  } else {
+    passwordElt.type = "password";
+  }
+});
+
+eyeiconconfElt.addEventListener("click", function (e) {
+    if (passwordconfElt.type === "password") {
+    passwordconfElt.type = "text";
+  } else {
+    passwordconfElt.type = "password";
+  }
+});
+
+passwordElt.addEventListener("blur", function (e) {
+  passwordElt.style.border = "3px solid red";
+  if (passwordElt.checkValidity()){
+      passwordElt.style.border= "3px solid green";
+    }
+  confpassword()
+});
+
+passwordconfElt.addEventListener("blur", function (e) {
+  passwordconfElt.style.border = "3px solid red";
+  if (passwordconfElt.checkValidity()){
+      passwordconfElt.style.border= "3px solid green";
+    }
+  confpassword()
+});
+
+function confpassword(){
+  if (passwordElt.value.length>0 && passwordconfElt.value.length>0 && passwordElt.value!=passwordconfElt.value){
+  }
+}
